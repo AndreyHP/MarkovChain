@@ -25,7 +25,7 @@ struct Chain {
                 word.push_back(ch);
             }
         }
-        // Last word
+        // add last word
         if (!word.empty()) {
             wordCount[word]++;
             totalWords++;
@@ -37,7 +37,7 @@ struct Chain {
         for (const auto& pair : wordCount) {
             ofs << pair.first << " " << pair.second << "\n";
         }
-        ofs << totalWords; // Save total words at the end
+        ofs << totalWords;
         ofs.close();
     }
 
@@ -78,7 +78,7 @@ struct Chain {
         for (const auto& pair : wordCount) {
             string word = pair.first;
             int count = pair.second;
-            int probability = (count * 100) / totalWords; // Calculate probability
+            int probability = (count * 100) / totalWords;
 
             std::cout << "Word: " << word
                       << " || Count: " << count
@@ -88,16 +88,16 @@ struct Chain {
 };
 
 string loadFileToString(const string& filePath) {
-    std::ifstream file(filePath); // Open file
-    if (!file) { // Check if the file opened successfully
+    std::ifstream file(filePath); 
+    if (!file) { 
         std::cerr << "Error opening file: " << filePath << std::endl;
-        return ""; // Return empty string on error
+        return ""; 
     }
 
-    std::stringstream buffer; // Create string stream buffer
-    buffer << file.rdbuf(); // Read file content into buffer
+    std::stringstream buffer; 
+    buffer << file.rdbuf(); 
 
-    return buffer.str(); // Return the string
+    return buffer.str(); 
 }
 
 
